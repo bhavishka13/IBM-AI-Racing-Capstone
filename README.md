@@ -4,7 +4,7 @@ IBM SkillsBuild AI Racing League capstone using Python and TORCS
 AI driver for the TORCS Corkscrew track, built on the provided `torcs_jm_par.py` example agent.
 
 **Author:** Bhavishka Singh
-**Video of fastest lap (Corkscrew, standing start):
+**Video of fastest lap (Corkscrew, standing start):**
 
 ## Results
 
