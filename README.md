@@ -11,7 +11,7 @@ AI driver for the TORCS Corkscrew track, built on the provided `torcs_jm_par.py`
 | Version | Best lap on Corkscrew | Damage |
 |---|---|---|
 | Original code | Did not complete a lap: the car left the road, crashed and stopped moving | Yes |
-| My version | [03:09:05 | 0 |
+| My version | 03:09:05 | 0 |
 
 ## The enhancement
 
