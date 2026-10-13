@@ -15,11 +15,15 @@ AI driver for the TORCS Corkscrew track, built on the provided `torcs_jm_par.py`
 
 ## The enhancement
 
-The original driver aims for one fixed target speed everywhere and only brakes lightly when the car is already sliding at a large angle. On Corkscrew it could not slow down for the corners, so it left the road and got stuck.
+The original parameters (target speed 100, steer gain 30, brake threshold 0.9) made the car steer too hard and drive too fast for Corkscrew. It left the road, took damage and stopped moving.
 
-My version makes the target speed depend on the road ahead. A new function, `corner_speed()`, reads the forward track sensor `S['track'][9]` and lowers the speed limit as the distance to the edge of the track gets shorter. `calculate_throttle()` uses that limit instead of the fixed `TARGET_SPEED`, so the car runs near its full target speed on straights and slows before corners.
+My enhancement is a retuned parameter set that keeps the car stable on the whole track:
 
-I also retuned the driving parameters to make the car stable: gentler steering, stronger centering on the track, and earlier braking.
+Lower target speed (100 to 70): the car arrives at corners slower, so it can stay on the road.
+Gentler steering (steer gain 30 to 12): at the original gain the steering reached full lock for very small angle errors, which made the car swing from side to side.
+Stronger centering (0.20 to 0.35): the car is pulled back towards the middle of the track more firmly, which keeps it away from the edges.
+
+I found these values by changing one parameter at a time and testing each change on the track in TORCS.
 
 ## Parameters used
 
@@ -34,7 +38,7 @@ ENABLE_TRACTION_CONTROL = True
 
 ## How this was made
 
-I used the provided starter code and first tuned its parameters by hand, testing each change in TORCS. I then tried IBM Bob to implement a corner-speed improvement, but its output did not help for this track. I developed the final change myself and tested it on Corkscrew from a standing start.
+I used the provided starter code and first tuned its parameters by hand, testing each change in TORCS. I then tried IBM Bob to implement a corner-speed improvement, but its output did not help for this track, it did help with the parameters. I developed the final change myself and tested it on Corkscrew from a standing start.
 
 ## What was not changed
 
